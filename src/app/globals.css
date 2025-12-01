@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 255 255 255;
+        --foreground: 15 23 42;
+        --card: 255 255 255;
+        --card-foreground: 15 23 42;
+        --border: 226 232 240;
+        --muted: 248 250 252;
+        --muted-foreground: 100 116 139;
+        --accent: 241 245 249;
+        --accent-foreground: 15 23 42;
+    }
+
+    .dark {
+        --background: 15 23 42;
+        --foreground: 241 245 249;
+        --card: 30 41 59;
+        --card-foreground: 241 245 249;
+        --border: 51 65 85;
+        --muted: 30 41 59;
+        --muted-foreground: 148 163 184;
+        --accent: 51 65 85;
+        --accent-foreground: 241 245 249;
+    }
+
+    body {
+        @apply bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    .glass {
+        @apply bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg border border-slate-200/20 dark:border-slate-700/50;
+    }
+
+    .glass-strong {
+        @apply bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl border border-slate-200/30 dark:border-slate-700/70;
+    }
+
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-cyan-600 dark:from-primary-400 dark:to-cyan-400;
+    }
+
+    .section-padding {
+        @apply px-6 md:px-12 lg:px-24 py-20 md:py-28;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-500;
+}
