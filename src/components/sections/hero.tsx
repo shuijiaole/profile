@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, Download } from 'lucide-react'
+import { Github, ExternalLink, Mail, Download } from 'lucide-react'
 import Image from 'next/image'
 
 export default function Hero() {
@@ -90,7 +90,7 @@ export default function Hero() {
                                 联系我
                             </motion.a>
                             <motion.a
-                                href="/resume.pdf"
+                                href="/沈佳龙简历.pdf"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="px-6 py-3 glass hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white rounded-lg font-medium transition-colors inline-flex items-center gap-2"
@@ -122,7 +122,7 @@ export default function Hero() {
                                 className="p-3 glass hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
                                 aria-label="CSDN"
                             >
-                                <Linkedin className="w-6 h-6" />
+                                <ExternalLink className="w-6 h-6" />
                             </motion.a>
                             <motion.a
                                 href="mailto:xiaolongok528@gmail.com"
