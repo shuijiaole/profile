@@ -6,10 +6,19 @@ import { ChevronDown, ExternalLink, Github, Briefcase, CheckCircle2 } from 'luci
 import projectsData from '@/data/projects.json'
 
 export default function Projects() {
-    const [expandedProject, setExpandedProject] = useState<number | null>(null)
+    // 默认展开所有项目
+    const [expandedProjects, setExpandedProjects] = useState<Set<number>>(
+        new Set(projectsData.map(p => p.id))
+    )
 
     const toggleProject = (id: number) => {
-        setExpandedProject(expandedProject === id ? null : id)
+        const newExpanded = new Set(expandedProjects)
+        if (newExpanded.has(id)) {
+            newExpanded.delete(id)
+        } else {
+            newExpanded.add(id)
+        }
+        setExpandedProjects(newExpanded)
     }
 
     return (
@@ -64,14 +73,14 @@ export default function Projects() {
                                             ))}
                                         </div>
                                     </div>
-                                    <motion.div animate={{ rotate: expandedProject === project.id ? 180 : 0 }} className="mt-2">
+                                    <motion.div animate={{ rotate: expandedProjects.has(project.id) ? 180 : 0 }} className="mt-2">
                                         <ChevronDown className="w-6 h-6 text-slate-400" />
                                     </motion.div>
                                 </div>
                             </div>
 
                             <AnimatePresence>
-                                {expandedProject === project.id && (
+                                {expandedProjects.has(project.id) && (
                                     <motion.div
                                         initial={{ height: 0, opacity: 0 }}
                                         animate={{ height: 'auto', opacity: 1 }}

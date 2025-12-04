@@ -69,11 +69,9 @@ export default function Footer() {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-sm text-slate-500 flex items-center justify-center gap-2"
+                        className="text-sm text-slate-500"
                     >
-                        <span>© {currentYear} shuijiaole. Made with</span>
-                        <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-                        <span>using Next.js & Tailwind CSS</span>
+                        <span>© {currentYear} shuijiaole. Built with Next.js & Tailwind CSS</span>
                     </motion.div>
                 </div>
             </div>
